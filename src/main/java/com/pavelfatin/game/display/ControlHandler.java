@@ -19,9 +19,12 @@ package com.pavelfatin.game.display;
 
 import com.pavelfatin.game.Direction;
 import com.pavelfatin.game.Labyrinth;
+import com.pavelfatin.game.Game;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ControlHandler extends KeyAdapter {
@@ -47,6 +50,15 @@ public class ControlHandler extends KeyAdapter {
             case KeyEvent.VK_DOWN:
                 _labyrinth.navigate(Direction.Down);
                 break;
+            case KeyEvent.VK_ENTER:
+                if(_labyrinth.isLose() || _labyrinth.isWin())
+                {
+            try {
+                Game.main(Game.GetArgs());
+            } catch (Exception ex) {
+                Logger.getLogger(ControlHandler.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                }
             default:
                 // do nothing
         }
