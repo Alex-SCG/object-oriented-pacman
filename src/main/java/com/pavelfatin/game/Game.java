@@ -22,7 +22,10 @@ import java.io.File;
 
 
 public class Game {
+    private static String[] userArgs;
+    
     public static void main(String[] args) throws Exception {
+    userArgs = args;
         if (args.length == 0) {
             runWith(Settings.getDefault());
         } else if (args.length == 4) {
@@ -32,6 +35,10 @@ public class Game {
         }
     }
 
+    public static String[] GetArgs() {
+        return userArgs;
+    }
+    
     private static void runWith(Settings settings) {
         final MainFrame frame = new MainFrame(settings);
 

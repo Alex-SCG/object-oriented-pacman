@@ -52,11 +52,11 @@ public class LabyrinthDisplay extends JComponent {
         drawFps(g);
 
         if (_labyrinth.isWin()) {
-            drawResult(g, "Win", Color.ORANGE);
+            drawResult(g, "Win, press Enter to play again", Color.ORANGE);
         }
 
         if (_labyrinth.isLose()) {
-            drawResult(g, "Lose", Color.RED);
+            drawResult(g, "Lose, press Enter to retry", Color.RED);
         }
     }
 
